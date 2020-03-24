@@ -9,21 +9,25 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_weight="8"
         android:textSize="30dp"
         android:background="#ff0000"
+        android:gravity="center"
+        android:layout_weight="8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello Android adsfadsfasdfasdfasdfasdfasdfasdfasdfasdf123123123!"/>
 
     <TextView
-        android:layout_weight="1"
+
         android:textSize="20dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello Android!"/>
+        android:layout_height="60dp"
+        android:text="Hello Android!"
+        android:gravity="center"/>
 
     <TextView
+        android:gravity="bottom"
+        android:layout_gravity="right"
         android:background="#00ff00"
         android:layout_weight="1"
         android:textSize="40dp"
