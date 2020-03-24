@@ -20,7 +20,18 @@ class T02_UIWidgetActivity : AppCompatActivity() {
         myCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
             Toast.makeText(this, "checked $isChecked", Toast.LENGTH_SHORT).show()
         }
-
-
+        radioGroup.setOnCheckedChangeListener { group, checkedId ->
+            when (checkedId) {
+                R.id.radioButton1 -> {
+                    Toast.makeText(this, "radio1 selected", Toast.LENGTH_SHORT).show()
+                }
+                R.id.radioButton2 -> {
+                    Toast.makeText(this, "radio2 selected", Toast.LENGTH_SHORT).show()
+                }
+                R.id.radioButton3 -> {
+                    Toast.makeText(this, "radio3 selected", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 }
