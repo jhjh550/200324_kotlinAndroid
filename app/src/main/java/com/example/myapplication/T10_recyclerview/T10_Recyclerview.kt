@@ -2,7 +2,9 @@ package com.example.myapplication.T10_recyclerview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
+import kotlinx.android.synthetic.main.activity_t10__recyclerview.*
 
 
 class T10_Recyclerview : AppCompatActivity() {
@@ -14,6 +16,8 @@ class T10_Recyclerview : AppCompatActivity() {
         setContentView(R.layout.activity_t10__recyclerview)
 
         generateData()
+        myRecyclerView.adapter = MyRecyclerViewAdapter(myList)
+        myRecyclerView.layoutManager = LinearLayoutManager(this)
     }
 
     fun generateData(){
