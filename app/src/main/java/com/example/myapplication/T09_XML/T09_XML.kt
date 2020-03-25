@@ -15,6 +15,9 @@ import kotlinx.android.synthetic.main.activity_t09__x_m_l.*
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserFactory
 import java.net.URL
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 // http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1153052000
 
@@ -48,9 +51,19 @@ class T09_XML : AppCompatActivity() {
             val tvDesc: TextView = v.findViewById(R.id.tvDesc)
             val itemImageView: ImageView = v.findViewById(R.id.itemImageView)
 
-            tvTitle.text = "${data.day} ${data.hour}시"
+            val cal = Calendar.getInstance()
+            cal.add(Calendar.DATE, data.day)
+            val df = SimpleDateFormat("yyyy-MM-dd")
+            val strDate = df.format(cal.time)
+            tvTitle.text = "${strDate} ${data.hour}시"
             tvDesc.text = "${data.wfKor} ${data.temp}'c"
-            //itemImageView.setImageResource(data.img)
+            val res = when{
+                data.wfKor.contains("구름")-> R.drawable.ic_cloud_black_24dp
+                data.wfKor.contains("비")-> R.drawable.ic_umbrella_black_24dp
+                data.wfKor.contains("맑음")-> R.drawable.ic_wb_sunny_black_24dp
+                else -> R.mipmap.ic_launcher
+            }
+            itemImageView.setImageResource(res)
 
             return v
         }
