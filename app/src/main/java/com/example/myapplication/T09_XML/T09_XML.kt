@@ -13,8 +13,8 @@ import java.net.URL
 
 class T09_XML : AppCompatActivity() {
 
-    data class MyWeatherData(val hour:Int, val day:Int,
-                             val temp:Float, val wfKor:String)
+    data class MyWeatherData(val hour:Int, var day:Int,
+                             var temp:Float, var wfKor:String)
     val myWeatherList = ArrayList<MyWeatherData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,25 +38,28 @@ class T09_XML : AppCompatActivity() {
             val xpp = factory.newPullParser()
             xpp.setInput(url.openStream(), "utf-8")
 
-            var bRead = false
             var res = ""
             var eventType = xpp.eventType
+            var startTag = ""
+            var data = MyWeatherData(0,0,0.0f,"")
             while (eventType != XmlPullParser.END_DOCUMENT){
                 if(eventType == XmlPullParser.START_TAG){
-                    bRead = when(xpp.name){
-                        "hour", "day", "temp", "wfKor" -> true
-                        else -> false
-                    }
+                    startTag = xpp.name
                 }else if(eventType == XmlPullParser.TEXT){
-                    if(bRead){
-                        res += xpp.text +"\n"
-                        bRead = false
+                    when(startTag){
+                        "hour"->{
+                            val hour = xpp.text.toInt()
+                            data = MyWeatherData(hour,0,0.0f,"")
+                            myWeatherList.add(data)
+                        }
+                        "day"->{ data.day = xpp.text.toInt() }
+                        "wfKor"->{ data.wfKor = xpp.text }
+                        "temp"->{ data.temp = xpp.text.toFloat() }
                     }
                 }
                 eventType = xpp.next()
             }
             return res
         }
-
     }
 }
