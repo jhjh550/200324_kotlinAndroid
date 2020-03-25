@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".T06_alertdialog.T06_AlertDialog">
-<Button
-    android:id="@+id/btnDialog"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+    tools:context=".T07_Thread.T07_Thread">
+
+    <Button
+        android:text="start"
+        android:id="@+id/btnThread"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

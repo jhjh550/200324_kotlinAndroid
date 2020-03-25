@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.myapplication.R
+import kotlinx.android.synthetic.main.activity_t06__alert_dialog.*
 
 class T06_AlertDialog : AppCompatActivity() {
 
@@ -14,22 +15,24 @@ class T06_AlertDialog : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_t06__alert_dialog)
 
-        val myView = layoutInflater.inflate(R.layout.dialog_view, null)
-        val editTextDialog = myView.findViewById<EditText>(R.id.editTextDialog)
-        val builder = AlertDialog.Builder(this)
-        builder
-            .setView(myView)
-            .setTitle("hello title")
-            .setMessage("hello message")
-            .setPositiveButton("OK") { dialog, which ->
-                Toast.makeText(this,
-                    "hello ok button ${editTextDialog.text}",
-                    Toast.LENGTH_SHORT).show()
-            }
-            .setNegativeButton("cancel"){dialog, which ->
-                Toast.makeText(this, "hello cancel button",
-                    Toast.LENGTH_SHORT).show()
-            }
-            .show()
+        btnDialog.setOnClickListener {
+            val myView = layoutInflater.inflate(R.layout.dialog_view, null)
+            val editTextDialog = myView.findViewById<EditText>(R.id.editTextDialog)
+            val builder = AlertDialog.Builder(this)
+            builder
+                .setView(myView)
+                .setTitle("hello title")
+                .setMessage("hello message")
+                .setPositiveButton("OK") { dialog, which ->
+                    Toast.makeText(this,
+                        "hello ok button ${editTextDialog.text}",
+                        Toast.LENGTH_SHORT).show()
+                }
+                .setNegativeButton("cancel"){dialog, which ->
+                    Toast.makeText(this, "hello cancel button",
+                        Toast.LENGTH_SHORT).show()
+                }
+            builder.show()
+        }
     }
 }
