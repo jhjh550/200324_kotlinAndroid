@@ -40,8 +40,8 @@ class T12_retrofit : AppCompatActivity() {
 
         myTypicode = retrofit.create(MyTypicodeInterface::class.java)
         //getPosts()
-        //getPost(100)
-        createPost()
+        getPost(100)
+        //createPost()
     }
     fun createPost(){
         val post = MyPost(11, 12, "my title", "my body")
