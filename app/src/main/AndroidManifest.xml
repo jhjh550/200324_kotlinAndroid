@@ -14,45 +14,34 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <receiver
+            android:name=".T17_BroadcastReceiver.MyReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".T17_BroadcastReceiver.T17_BroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".T16_SQLite.T16_SQLite">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".T15_sharedPreperences.T15_SharedPreferences">
-        </activity>
-        <activity android:name=".T14_runtime_permission.T14_RuntimePermission"></activity>
+        <activity android:name=".T15_sharedPreperences.T15_SharedPreferences" />
+        <activity android:name=".T14_runtime_permission.T14_RuntimePermission" />
         <activity android:name=".T13_Webview.T13_Webview">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".t12_retrofit.T12_retrofit">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".T11_json.T11_JSON">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".P01_weather.P01_Weathrer" />
-        <activity android:name=".T10_recyclerview.T10_Recyclerview">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".T10_recyclerview.T10_Recyclerview"/>
         <activity android:name=".T09_XML.T09_XML" />
         <activity android:name=".T08_asynctask.T08_AsyncTask" />
         <activity android:name=".T07_Thread.T07_Thread" />
