@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 
@@ -30,16 +31,27 @@ class MyRecyclerViewAdapter (
     }
 
     class MyViewHolder(itemView: View)
-        :RecyclerView.ViewHolder(itemView){
+        :RecyclerView.ViewHolder(itemView), View.OnClickListener{
 
         val tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
         val tvDesc: TextView = itemView.findViewById(R.id.tvDesc)
         val itemImageView: ImageView = itemView.findViewById(R.id.itemImageView)
-
+        //var data:T10_Recyclerview.MyData? = null
+        lateinit var data:T10_Recyclerview.MyData
+        init {
+            itemView.setOnClickListener(this)
+        }
         fun bind(data:T10_Recyclerview.MyData){
+            this.data = data
             tvTitle.text = data.title
             tvDesc.text = data.desc
             itemImageView.setImageResource(data.img)
+        }
+
+        override fun onClick(v: View?) {
+            Toast.makeText(itemView.context,
+                data.title,
+                Toast.LENGTH_SHORT).show()
         }
     }
 }
