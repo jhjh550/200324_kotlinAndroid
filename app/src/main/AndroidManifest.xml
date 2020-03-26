@@ -12,6 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".t12_retrofit.T12_retrofit">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".T11_json.T11_JSON">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".P01_weather.P01_Weathrer"></activity>
+        <activity android:name=".P01_weather.P01_Weathrer" />
         <activity android:name=".T10_recyclerview.T10_Recyclerview">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
