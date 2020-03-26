@@ -10,6 +10,10 @@ class MyReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         when(intent.action){
+            MY_EVENT ->{
+                Toast.makeText(context, "MyReceiver my event",
+                    Toast.LENGTH_LONG).show()
+            }
             Intent.ACTION_POWER_CONNECTED -> {
                 Toast.makeText(context, "MyReceiver power connected ",
                     Toast.LENGTH_LONG).show()
