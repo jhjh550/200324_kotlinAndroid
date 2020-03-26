@@ -14,15 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".T15_sharedPreperences.T15_SharedPreferences">
+        <activity android:name=".T16_SQLite.T16_SQLite">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".T14_runtime_permission.T14_RuntimePermission">
+        <activity android:name=".T15_sharedPreperences.T15_SharedPreferences">
         </activity>
+        <activity android:name=".T14_runtime_permission.T14_RuntimePermission"></activity>
         <activity android:name=".T13_Webview.T13_Webview">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
