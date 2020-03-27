@@ -22,6 +22,16 @@ class T18_service : AppCompatActivity() {
                 this,
                 MyService::class.java)
             startService(myIntent)
+
+//            val myIntent2 = Intent(
+//                this,
+//                MyIntentService2::class.java)
+//            myIntent2.action = ""
+//            myIntent2.putExtra("","")
+//            startService(myIntent2)
+//
+//            MyIntentService2.startActionBaz(this, "")
+
         }
         btnStop.setOnClickListener {
             val myIntent = Intent(
