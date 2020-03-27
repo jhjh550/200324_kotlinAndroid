@@ -26,5 +26,9 @@ class T20_Style : AppCompatActivity() {
 
         btnOne.setOnClickListener(numberListener)
         btnZero.setOnClickListener(numberListener)
+        btnEnter.setOnClickListener {
+            tvSelected.text = tvWorking.text
+            tvWorking.text = "0"
+        }
     }
 }
