@@ -9,6 +9,7 @@
     android:id="@+id/rootLayout"
     tools:context=".T20_style.T20_Style">
     <TextView
+        android:background="@mipmap/ab_bottom_solid_light_holo"
         android:id="@+id/tvSelected"
         android:textSize="50dp"
         android:gravity="center"
