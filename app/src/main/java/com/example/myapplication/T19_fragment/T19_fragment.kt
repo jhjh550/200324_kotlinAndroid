@@ -39,12 +39,13 @@ class T19_fragment : AppCompatActivity(), View.OnClickListener {
             R.id.btnReplace->{
                 if(fragment != null){
                     val newFragment = if(fragment.tag.equals("counter")){
-                        BlankFragment()
+                        BlankFragment2.newInstance("hello", "world")
                     }else{
                         CounterFragment()
                     }
                     val tag = if(newFragment is CounterFragment) "counter" else "blank"
-                    tr.replace(R.id.containerLayout, newFragment, tag).commit()
+                    tr.replace(R.id.containerLayout, newFragment, tag)
+                        .addToBackStack(null).commit()
                 }
             }
             R.id.btnHide->{
