@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.LinearLayout
+import androidx.core.view.get
 import com.example.myapplication.R
 import kotlinx.android.synthetic.main.activity_t20__style.*
 
@@ -24,8 +26,28 @@ class T20_Style : AppCompatActivity() {
             }
         }
 
-        btnOne.setOnClickListener(numberListener)
-        btnZero.setOnClickListener(numberListener)
+        var number = 1
+        for(i in 2 until rootLayout.childCount - 1 ){
+            val row = rootLayout.getChildAt(i) as LinearLayout
+            for(k in 0 until row.childCount){
+                val btn = row.getChildAt(k) as Button
+                btn.text = "$number"
+                number += 1
+                btn.setOnClickListener(numberListener)
+            }
+        }
+        val index = rootLayout.childCount - 1
+        val lastRow = rootLayout.getChildAt(index) as LinearLayout
+        val btnCancel = lastRow.getChildAt(0) as Button
+        btnCancel.text = "cancel"
+        btnCancel.setOnClickListener { tvWorking.text = "0" }
+
+        val zeroBtn = lastRow.getChildAt(1) as Button
+        zeroBtn.text = "0"
+        zeroBtn.setOnClickListener(numberListener)
+
+        val btnEnter = lastRow.getChildAt(2) as Button
+        btnEnter.text = "enter"
         btnEnter.setOnClickListener {
             tvSelected.text = tvWorking.text
             tvWorking.text = "0"
