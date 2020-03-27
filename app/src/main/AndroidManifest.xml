@@ -15,9 +15,13 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <service
-            android:name=".T18_service.MyService"
+            android:name=".T18_service.MyBindService"
             android:enabled="true"
             android:exported="true"></service>
+        <service
+            android:name=".T18_service.MyService"
+            android:enabled="true"
+            android:exported="true" />
 
         <activity android:name=".T18_service.T18_service">
             <intent-filter>
